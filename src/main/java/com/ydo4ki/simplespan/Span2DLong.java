@@ -5,10 +5,10 @@ import java.util.Arrays;
 import static com.ydo4ki.simplespan.Span2D.flat_index;
 
 /**
- * @since 4/3/2025 8:31 PM
+ * @since 4/3/2025 8:10 PM
  * @author Sulphuris
  */
-public class Span2DLong extends span_2D<long[]> {
+public final class Span2DLong extends span_2D<long[]> {
 	
 	private Span2DLong(long[] array, int width, int height) {
 		super(array, width, height);
@@ -41,7 +41,7 @@ public class Span2DLong extends span_2D<long[]> {
 	}
 	
 	public static long[] newArray(int width, int height) {
-		return newArray(width, height, 0L);
+		return newArray(width, height, (long)0);
 	}
 	
 	public static long[] newArray(int width, int height, long defaultValue) {
@@ -60,4 +60,3 @@ public class Span2DLong extends span_2D<long[]> {
 		data[flat_index(width, height, x, y)] = newValue;
 	}
 }
-

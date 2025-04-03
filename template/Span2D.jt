@@ -1,0 +1,62 @@
+package com.ydo4ki.simplespan;
+
+import java.util.Arrays;
+
+import static com.ydo4ki.simplespan.Span2D.flat_index;
+
+/**
+ * @since 4/3/2025 8:10 PM
+ * @author Sulphuris
+ */
+public final class Span2D#T# extends span_2D<#t#[]> {
+	
+	private Span2D#T#(#t#[] array, int width, int height) {
+		super(array, width, height);
+	}
+	
+	@Override
+	public Span2D#T# clone() {
+		return new Span2D#T#(array.clone(), width, height);
+	}
+	
+	public Span2D#T#(int width, int height) {
+		this(width, height, (#t#)0);
+	}
+	
+	public Span2D#T#(int width, int height, #t# defaultValue) {
+		this(newArray(width, height, defaultValue), width, height);
+	}
+	
+	public static Span2D#T# wrap(#t#[] array, int width, int height) {
+		wrapCheck(array.length, width, height);
+		return new Span2D#T#(array, width, height);
+	}
+	
+	public #t# get(int x, int y) {
+		return get(array, width, height, x, y);
+	}
+	
+	public void set(int x, int y, #t# val) {
+		set(array, width, height, x, y, val);
+	}
+	
+	public static #t#[] newArray(int width, int height) {
+		return newArray(width, height, (#t#)0);
+	}
+	
+	public static #t#[] newArray(int width, int height, #t# defaultValue) {
+		#t#[] array = new #t#[width * height];
+		if (defaultValue != 0) {
+			Arrays.fill(array, defaultValue);
+		}
+		return array;
+	}
+	
+	public static #t# get(#t#[] data, int width, int height, int x, int y) {
+		return data[flat_index(width, height, x, y)];
+	}
+	
+	public static void set(#t#[] data, int width, int height, int x, int y, #t# newValue) {
+		data[flat_index(width, height, x, y)] = newValue;
+	}
+}

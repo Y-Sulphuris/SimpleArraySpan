@@ -8,7 +8,7 @@ import static com.ydo4ki.simplespan.Span2D.flat_index;
  * @since 4/3/2025 8:10 PM
  * @author Sulphuris
  */
-public class Span2DByte extends span_2D<byte[]> {
+public final class Span2DByte extends span_2D<byte[]> {
 	
 	private Span2DByte(byte[] array, int width, int height) {
 		super(array, width, height);

@@ -5,10 +5,10 @@ import java.util.Arrays;
 import static com.ydo4ki.simplespan.Span2D.flat_index;
 
 /**
- * @since 4/3/2025 8:32 PM
+ * @since 4/3/2025 8:10 PM
  * @author Sulphuris
  */
-public class Span2DBoolean extends span_2D<boolean[]> {
+public final class Span2DBoolean extends span_2D<boolean[]> {
 	
 	private Span2DBoolean(boolean[] array, int width, int height) {
 		super(array, width, height);
@@ -60,4 +60,3 @@ public class Span2DBoolean extends span_2D<boolean[]> {
 		data[flat_index(width, height, x, y)] = newValue;
 	}
 }
-
